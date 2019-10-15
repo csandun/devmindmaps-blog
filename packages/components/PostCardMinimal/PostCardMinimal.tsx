@@ -11,9 +11,11 @@ import {
   Excerpt,
   PostContent,
   PostTags,
-} from './PostCard.style';
+  PostDateAndPreview,
+  ReadMore,
+} from './PostCardMinimal.style';
 
-interface PostCardProps {
+interface PostCardMinimalProps {
   image?: any;
   title: string;
   description?: string;
@@ -24,7 +26,7 @@ interface PostCardProps {
   imageType?: 'fixed' | 'fluid';
 }
 
-const PostCard: React.FunctionComponent<PostCardProps> = ({
+const PostCardMinimal: React.FunctionComponent<PostCardMinimalProps> = ({
   image,
   title,
   description,
@@ -44,31 +46,40 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
   }
 
   return (
-    
     <PostCardWrapper className={addAllClasses.join(' ')} {...props}>
-      {image == null ? null : (
-        <PostPreview className="post_preview">
-          <Link to={url}>
-            {imageType === 'fluid' ? (
-              <Img fluid={image} alt="post preview" />
-            ) : (
-              <Img fixed={image} alt="post preview" />
-            )}
-          </Link>
-        </PostPreview>
-      )}
-  
       <PostDetails className="post_details">
-        {date && (
-          <PostDate
-            dangerouslySetInnerHTML={{
-              __html: date,
-            }}
-            className="post_date"
-          />
-        )}
+        <PostDateAndPreview>
+          {date && (
+            <PostDate
+              dangerouslySetInnerHTML={{
+                __html: date,
+              }}
+              className="post_date"
+            />
+          )}
+          {image == null ? null : (
+            <PostPreview className="post_preview">
+              <Link to={url}>
+                {imageType === 'fluid' ? (
+                  <Img fluid={image} alt="post preview" />
+                ) : (
+                  <Img fixed={image} alt="post preview" />
+                )}
+              </Link>
+            </PostPreview>
+          )}
+        </PostDateAndPreview>
 
         <PostContent className="post_content">
+          {tags == null ? null : (
+            <PostTags className="post_tags">
+              {tags.map((tag: string, index: number) => (
+                <Link key={index} to={`/tags/${_.kebabCase(tag)}/`}>
+                  {`#${tag}`}
+                </Link>
+              ))}
+            </PostTags>
+          )}
           <PostTitle className="post_title">
             <Link to={url}>{title}</Link>
           </PostTitle>
@@ -80,24 +91,17 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
               className="excerpt"
             />
           )}
-
-          {tags == null ? null : (
-            <PostTags className="post_tags">
-              {tags.map((tag: string, index: number) => (
-                <Link key={index} to={`/tags/${_.kebabCase(tag)}/`}>
-                  {`#${tag}`}
-                </Link>
-              ))}
-            </PostTags>
-          )}
+          <ReadMore>
+            <Link to={url}>Read More</Link>
+          </ReadMore>
         </PostContent>
       </PostDetails>
     </PostCardWrapper>
   );
 };
 
-PostCard.defaultProps = {
+PostCardMinimal.defaultProps = {
   imageType: 'fluid',
 };
 
-export default PostCard;
+export default PostCardMinimal;

@@ -3,50 +3,50 @@ import { Link } from 'gatsby';
 import _ from 'lodash';
 import Img from 'gatsby-image';
 import {
-  MasonryCardWrapper,
+  FeaturedCardWrapper,
   PostPreview,
   PostDetails,
-  PostDate,
   PostTitle,
   PostTags,
   PostMeta,
-  ReadingTime,
   ReadMore,
-} from './MasonryCard.style';
-import { IoIosArrowForward } from 'react-icons/io';
+  Excerpt,
+} from './FeaturedCard.style';
 
-interface MasonryCardProps {
+interface FeaturedCardProps {
   image?: any;
   title: string;
+  description?: string;
   url: string;
-  date?: string;
   tags?: [];
   className?: string;
   imageType?: 'fixed' | 'fluid';
-  readTime?: string;
+  overlay?: boolean;
 }
 
-const MasonryCard: React.FunctionComponent<MasonryCardProps> = ({
+const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
   image,
   title,
+  description,
   url,
-  date,
   tags,
   className,
   imageType,
-  readTime,
+  overlay,
   ...props
 }) => {
-  // Add all classs to an array
-  const addAllClasses = ['mesonry_card'];
+  const addClass = ['featured_card'];
 
-  // className prop checking
+  if (overlay == true) {
+    addClass.push('overlay');
+  }
+
   if (className) {
-    addAllClasses.push(className);
+    addClass.push(className);
   }
 
   return (
-    <MasonryCardWrapper className={addAllClasses.join(' ')} {...props}>
+    <FeaturedCardWrapper className={addClass.join(' ')} {...props}>
       {image == null ? null : (
         <PostPreview className="post_preview">
           <Link to={url}>
@@ -61,16 +61,7 @@ const MasonryCard: React.FunctionComponent<MasonryCardProps> = ({
 
       <PostDetails className="post_details">
         <PostMeta>
-          {date && (
-            <PostDate
-              dangerouslySetInnerHTML={{
-                __html: date,
-              }}
-              className="post_date"
-            />
-          )}
-          {readTime && <ReadingTime>{readTime}</ReadingTime>}
-          {tags == null ? null : (
+          {tags == null || overlay == true ? null : (
             <PostTags className="post_tags">
               {tags.map((tag: string, index: number) => (
                 <Link key={index} to={`/tags/${_.kebabCase(tag)}/`}>
@@ -84,18 +75,32 @@ const MasonryCard: React.FunctionComponent<MasonryCardProps> = ({
         <PostTitle className="post_title">
           <Link to={url}>{title}</Link>
         </PostTitle>
-        <ReadMore>
-          <Link to={url}>
-            Read More <IoIosArrowForward />
-          </Link>
+        {overlay == true ? (
+          ''
+        ) : (
+          <>
+            {' '}
+            {description && (
+              <Excerpt
+                dangerouslySetInnerHTML={{
+                  __html: description,
+                }}
+                className="excerpt"
+              />
+            )}
+          </>
+        )}
+
+        <ReadMore className="read_more">
+          <Link to={url}>{overlay == true ? 'Read Story' : 'Read More'}</Link>
         </ReadMore>
       </PostDetails>
-    </MasonryCardWrapper>
+    </FeaturedCardWrapper>
   );
 };
 
-MasonryCard.defaultProps = {
+FeaturedCard.defaultProps = {
   imageType: 'fluid',
 };
 
-export default MasonryCard;
+export default FeaturedCard;
