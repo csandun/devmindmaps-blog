@@ -9,7 +9,7 @@ module.exports = {
     about: `Breakfast procuring no end happiness allowance assurance frank. Met simplicity nor difficulty unreserved who. Entreaties mr conviction dissimilar me
     astonished estimating cultivated.`,
     description: `A Gatsby Blog`,
-    siteUrl: `https://storyhub-minimal-tarex.redq.now.sh`,
+    siteUrl: `https://redq.io/`,
   },
   plugins: [
     {
@@ -114,12 +114,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-lodash`,
     },
-    // {
-    //   resolve: 'gatsby-plugin-mailchimp',
-    //   options: {
-    //     endpoint: '',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: '',
+      },
+    },
     {
       resolve: `gatsby-source-instagram`,
       options: {

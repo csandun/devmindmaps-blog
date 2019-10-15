@@ -1,13 +1,13 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Masonry from "react-masonry-component"
-import MasonryCard from "../../../components/MasonryCard/masonryCard"
-import Pagination from "../../../components/Pagination/pagination"
+import MasonryCard from "components/MasonryCard/MasonryCard"
+import Pagination from "components/Pagination/Pagination"
 import BlogPostsWrapper, { PostRow, PostCol, SecTitle } from "./style"
 
 type PostsProps = {}
 
-const Posts: React.FunctionComponent<PostsProps> = () => {
+const Posts: React.FunctionComponent<PostsProps> = props => {
   const Data = useStaticQuery(graphql`
     query {
       site {

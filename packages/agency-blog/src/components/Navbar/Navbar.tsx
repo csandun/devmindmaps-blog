@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { IoIosSearch, IoIosClose } from "react-icons/io"
-import { DrawerProvider } from "components/Drawer/drawerContext"
-import Menu from "./menu"
-import MobileMenu from "./mobileMenu"
+import { DrawerProvider } from "components/Drawer/DrawerContext"
+import Menu from "./Menu"
+import MobileMenu from "./MobileMenu"
 import SearchContainer from "../../containers/SearchContainer/SearchContainer"
 import HeaderWrapper, {
   NavbarWrapper,
@@ -13,7 +13,7 @@ import HeaderWrapper, {
   NavSearchWrapper,
   SearchCloseButton,
   NavSearchFromWrapper,
-} from "./navbar.style"
+} from "./Navbar.style"
 import LogoImage from "../../images/logo.png"
 
 type NavbarProps = {

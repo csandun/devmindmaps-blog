@@ -10,7 +10,7 @@ import {
   NewsletterInputWrapper,
   ErrorMessage,
   SuccessMessage,
-} from "./newsletter.style"
+} from "./Newsletter.style"
 
 type NewsletterProps = {}
 

@@ -5,7 +5,7 @@ import InstShowcaseWrapper, {
   InstashowcaseRow,
   ShowcaseTitle,
 } from "./style"
-import InstagramGrid from "../../components/InstagramGrid/instagramGrid"
+import InstagramGrid from "components/InstagramGrid/InstagramGrid"
 import { IoLogoInstagram } from "react-icons/io"
 
 interface ShowcaseProps {}

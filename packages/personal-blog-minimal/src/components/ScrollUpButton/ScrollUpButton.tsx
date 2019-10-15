@@ -1,6 +1,6 @@
 import React from "react"
 import { IoMdArrowRoundUp } from "react-icons/io"
-import ScrollUpButtonWrapper from "./scrollUpButton.style"
+import ScrollUpButtonWrapper from "./ScrollUpButton.style"
 
 interface ScrollUpButtonProps {}
 
