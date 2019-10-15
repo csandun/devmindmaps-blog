@@ -1,12 +1,18 @@
-import * as React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import PostCardMinimal from "components/PostCardMinimal/PostCardMinimal"
-import Pagination from "components/Pagination/Pagination"
-import BlogPostsWrapper, { SecTitle } from "./style"
+import Masonry from "react-masonry-component"
+import Button from "components/Button/Button"
+import ImageCard from "components/ImageCard/imageCard"
+import BlogPostsWrapper, {
+  PostRow,
+  PostCol,
+  SecTitle,
+  LoadMoreButton,
+} from "./style"
 
 type PostsProps = {}
 
-const Posts: React.FunctionComponent<PostsProps> = props => {
+const Posts: React.FunctionComponent<PostsProps> = () => {
   const Data = useStaticQuery(graphql`
     query {
       site {
@@ -22,26 +28,23 @@ const Posts: React.FunctionComponent<PostsProps> = props => {
           }
         }
       }
-      allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
-        limit: 5
-      ) {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
         totalCount
         edges {
           node {
-            excerpt(pruneLength: 300)
+            excerpt(pruneLength: 120)
             fields {
-              slug
+              slug             
             }
             frontmatter {
-              date(formatString: "DD [<span>] MMM [</span>]")
+              date(formatString: "MMM DD, YYYY")
               title
               description
               tags
               cover {
                 childImageSharp {
-                  fluid(maxWidth: 325, maxHeight: 325, quality: 90) {
-                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                  fluid(maxWidth: 570, quality: 100) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
@@ -53,40 +56,64 @@ const Posts: React.FunctionComponent<PostsProps> = props => {
   `)
 
   const Posts = Data.allMarkdownRemark.edges
-  const TotalPage = Data.allSitePage.nodes[0].context.numPages
-  const CurrentPage = Data.allSitePage.nodes[0].context.currentPage
+  const TotalPost = Data.allMarkdownRemark.edges.length
+
+  const [state, setState] = useState({
+    visibile: 8,
+  })
+
+  const [load, setload] = useState({
+    loading: false,
+  })
+
+  const fetchMoreData = () => {
+    setload({ loading: true })
+
+    setTimeout(function() {
+      setState(prev => {
+        return { visibile: prev.visibile + 8 }
+      })
+      setload({ loading: false })
+    }, 1000)
+  }
 
   return (
     <BlogPostsWrapper>
-      <SecTitle>Leatest Stories</SecTitle>
-      {Posts.map(({ node }: any) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <PostCardMinimal
-            key={node.fields.slug}
-            title={title}
-            image={
-              node.frontmatter.cover == null
-                ? null
-                : node.frontmatter.cover.childImageSharp.fluid
-            }
-            url={node.fields.slug}
-            description={node.frontmatter.description || node.excerpt}
-            date={node.frontmatter.date}
-            tags={node.frontmatter.tags}
-          />
-        )
-      })}
-
-      {TotalPage >> 1 ? (
-        <Pagination
-          nextLink="/page/2"
-          currentPage={CurrentPage}
-          totalPage={TotalPage}
-        />
-      ) : (
-        ""
-      )}
+      <SecTitle>Latest Stories</SecTitle>
+      <PostRow>
+        <Masonry className="showcase">
+          {Posts.slice(0, state.visibile).map(({ node }: any) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <PostCol key={node.fields.slug}>
+                <ImageCard
+                  title={title}
+                  image={
+                    node.frontmatter.cover == null
+                      ? null
+                      : node.frontmatter.cover.childImageSharp.fluid
+                  }
+                  url={node.fields.slug}
+                  description={node.frontmatter.description || node.excerpt}
+                ></ImageCard>
+              </PostCol>
+            )
+          })}
+        </Masonry>
+        <LoadMoreButton>
+          {state.visibile < TotalPost ? (
+            <Button
+              title="Load more"
+              type="submit"
+              onClick={fetchMoreData}
+              isLoading={load.loading == true ? true : false}
+              loader="Loading.."
+            />
+          ) : (
+            <p>No more posts</p>
+          )}
+        </LoadMoreButton>
+      </PostRow>
     </BlogPostsWrapper>
   )
 }

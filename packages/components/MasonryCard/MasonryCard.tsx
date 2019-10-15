@@ -12,7 +12,7 @@ import {
   PostMeta,
   ReadingTime,
   ReadMore,
-} from './MasonryCard.style';
+} from './masonryCard.style';
 import { IoIosArrowForward } from 'react-icons/io';
 
 interface MasonryCardProps {
