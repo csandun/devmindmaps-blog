@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import PostCard from "components/PostCard/PostCard"
-import Pagination from "components/Pagination/Pagination"
+import PostCard from "../../../components/PostCard/postCard"
+import Pagination from "../../../components/Pagination/pagination"
 import BlogPostsWrapper from "./style"
 
 type PostsProps = {}

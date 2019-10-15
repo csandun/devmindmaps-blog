@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
-import Drawer from "components/Drawer/Drawer"
-import { DrawerContext } from "components/Drawer/DrawerContext"
-import Menu from "./Menu"
+import Drawer from "components/Drawer/drawer"
+import { DrawerContext } from "components/Drawer/drawerContext"
+import Menu from "./menu"
 import {
   MobileMenuWrapper,
   DrawerContentWrapper,
@@ -10,7 +10,7 @@ import {
   DrawerLogo,
   DrawerClose,
   HamburgerIcon,
-} from "./Navbar.style"
+} from "./navbar.style"
 import { FiX } from "react-icons/fi"
 
 type MobileMenuProps = {

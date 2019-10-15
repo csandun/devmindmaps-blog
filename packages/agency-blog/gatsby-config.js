@@ -8,7 +8,7 @@ module.exports = {
     author: `Monnisa`,
     about: `Every company has a story to tell, so break out your storytelling skills from that random English class you took years ago and put them to work on your “About Us” page. Using descriptive and emotive copy and gorgeous graphics, an “About Us” page with a story works.`,
     description: `A Gatsby Blog`,
-    siteUrl: `https://redq.io/`,
+    siteUrl: `https://storyhub-agency-tarex.redq.now.sh/`,
   },
   plugins: [
     {
@@ -116,12 +116,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-lodash`,
     },
-    // {
-    //   resolve: 'gatsby-plugin-mailchimp',
-    //   options: {
-    //     endpoint: '',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: '',
+      },
+    },
     {
       resolve: `gatsby-source-instagram`,
       options: {
