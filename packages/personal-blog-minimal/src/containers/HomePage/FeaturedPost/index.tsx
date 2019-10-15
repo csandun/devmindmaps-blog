@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import FeaturedCard from "../../../components/FeaturedCard/FeaturedCard"
+import FeaturedCard from "components/FeaturedCard/FeaturedCard"
 import {
   FeaturedPostWrapper,
   FeaturedPostRow,

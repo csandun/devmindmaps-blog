@@ -10,7 +10,7 @@ import {
   NewsletterInputWrapper,
   ErrorMessage,
   SuccessMessage,
-} from "./newsletter.style"
+} from "./Newsletter.style"
 
 type NewsletterProps = {}
 
@@ -39,41 +39,7 @@ const Newsletter: React.FunctionComponent<NewsletterProps> = ({ ...props }) => {
         setEmail("")
       })
   }
-  return (
-    <NewsletterWrapper {...props}>
-      <NewsletterInnerWrapper>
-        <NewsletterTitle>
-          Get The Best Of All Hands Delivered To Your Inbox
-        </NewsletterTitle>
-        <NewsletterDescription>
-          Subscribe to our newsletter and stay updated.
-        </NewsletterDescription>
-
-        <NewsletterInputWrapper onSubmit={handleSubmit}>
-          {success ? (
-            <SuccessMessage>{success} 🙂</SuccessMessage>
-          ) : (
-            <>
-              <Input
-                type="email"
-                name="email"
-                placeholder="Write your email here"
-                onChange={handleChange}
-                value={email}
-                required
-              />
-              <Button title="Subscribe" type="submit" />
-            </>
-          )}
-        </NewsletterInputWrapper>
-        {error && (
-          <ErrorMessage
-            dangerouslySetInnerHTML={{ __html: `<span>*</span>${error}` }}
-          />
-        )}
-      </NewsletterInnerWrapper>
-    </NewsletterWrapper>
-  )
+  return '';
 }
 
 export default Newsletter
