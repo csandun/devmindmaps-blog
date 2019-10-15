@@ -14,7 +14,7 @@ import HeaderWrapper, {
   SearchCloseButton,
   NavSearchFromWrapper,
 } from "./Navbar.style"
-import LogoImage from "../../images/logomindlonglength.png"
+import LogoImage from "../../images/logomindsmall.gif"
 
 type NavbarProps = {
   className?: string
