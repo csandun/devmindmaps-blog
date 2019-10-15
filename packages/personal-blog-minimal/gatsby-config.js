@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `The Programmer Mind`,
+    title: `Dev mind maps`,
     author: `Chathuranga Sandun`,
     about: ` is a Software Engineer, blogger and freelancer with industry experience with C#, Asp.Net Core,  Angular 2+ and more latest techologies. Contact me through Facebook or Linkedin.`,
     description: `The Programmer's Mind`,
