@@ -21,4 +21,4 @@ install:
   - yarn 
 
 script:
-  - yarn minimal-build
+  - yarn photography-build
