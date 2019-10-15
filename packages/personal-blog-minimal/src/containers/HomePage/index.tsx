@@ -1,7 +1,8 @@
 import * as React from "react"
 import PersonalBlogWrapper from "./style"
+import Intro from "./Intro"
 import Posts from "./Posts"
-import SimpleSwiper from "./PostSlider"
+import FeaturedPosts from "./FeaturedPost"
 
 type PersonalBlogProps = {}
 
@@ -10,7 +11,8 @@ const PersonalBlog: React.FunctionComponent<PersonalBlogProps> = ({
 }) => {
   return (
     <PersonalBlogWrapper {...props}>
-      <SimpleSwiper />
+      <Intro />
+      <FeaturedPosts />
       <Posts />
     </PersonalBlogWrapper>
   )

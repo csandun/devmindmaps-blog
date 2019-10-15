@@ -2,22 +2,23 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import _ from "lodash"
 import { DiscussionEmbed } from "disqus-react"
-import urljoin from "url-join"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostCard from "components/PostCard/postCard"
-import PostDetails from "components/PostDetails/postDetails"
+import PostCard from "components/PostCard/PostCard"
+import PostDetails from "components/PostDetails/PostDetails"
 import {
   FacebookShareButton,
   TwitterShareButton,
   PinterestShareButton,
   RedditShareButton,
+  LinkedinShareButton,
 } from "react-share"
 import {
   IoLogoFacebook,
   IoLogoTwitter,
   IoLogoPinterest,
   IoLogoReddit,
+  IoLogoLinkedin,
 } from "react-icons/io"
 import {
   BlogPostDetailsWrapper,
@@ -36,8 +37,6 @@ const BlogPostTemplate = (props: any) => {
   const { edges } = props.data.allMarkdownRemark
   const title = post.frontmatter.title
   const slug = post.fields.slug
-  const siteUrl = props.data.site.siteMetadata.siteUrl
-  const shareUrl = urljoin(siteUrl, slug)
 
   const disqusConfig = {
     shortname: process.env.DISQUS_NAME,
@@ -76,24 +75,18 @@ const BlogPostTemplate = (props: any) => {
           )}
           <PostShare>
             <span>Share This:</span>
-            <FacebookShareButton url={shareUrl} quote={post.excerpt}>
+            <FacebookShareButton
+              url={'theprogrammermind.com'+post.fields.slug}
+              quote={post.frontmatter.title}
+            >
               <IoLogoFacebook />
             </FacebookShareButton>
-            <TwitterShareButton url={shareUrl} title={title}>
-              <IoLogoTwitter />
-            </TwitterShareButton>
-            <PinterestShareButton
-              url={shareUrl}
-              media={urljoin(siteUrl, post.frontmatter.cover.publicURL)}
+            <LinkedinShareButton
+              url={'theprogrammermind.com'+post.fields.slug}
+              title={post.frontmatter.title}
             >
-              <IoLogoPinterest />
-            </PinterestShareButton>
-            <RedditShareButton
-              url={shareUrl}
-              title={`${post.frontmatter.title}`}
-            >
-              <IoLogoReddit />
-            </RedditShareButton>
+              <IoLogoLinkedin />
+            </LinkedinShareButton>
           </PostShare>
         </BlogPostFooter>
         <BlogPostComment
@@ -134,7 +127,8 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!, $tag: [String!]) {
     site {
       siteMetadata {
-        siteUrl
+        title
+        author
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -150,7 +144,6 @@ export const pageQuery = graphql`
         description
         tags
         cover {
-          publicURL
           childImageSharp {
             fluid(maxWidth: 1170, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -176,7 +169,6 @@ export const pageQuery = graphql`
             title
             tags
             cover {
-              publicURL
               childImageSharp {
                 fluid(maxWidth: 480, maxHeight: 285, quality: 90) {
                   ...GatsbyImageSharpFluid_withWebp

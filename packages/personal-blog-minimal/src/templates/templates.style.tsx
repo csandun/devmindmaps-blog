@@ -3,17 +3,33 @@ import { themeGet } from "styled-system"
 
 export const BlogPostsWrapper = styled.div`
   margin: 0 auto;
-  padding: 120px 75px 0 75px;
+  padding-top: 120px;
   position: relative;
 
-  @media (max-width: 1400px) {
-    padding: 120px 35px 0 35px;
+  @media (min-width: 990px) {
+    width: 900px;
+  }
+  @media (min-width: 1200px) {
+    width: 1050px;
+  }
+  @media (min-width: 1400px) {
+    width: 1170px;
   }
   @media (max-width: 990px) {
-    padding: 80px 25px 0 25px;
+    padding: 80px 45px 0 45px;
   }
   @media (max-width: 575px) {
     padding: 60px 25px 0 25px;
+  }
+
+  .post_card {
+    margin-bottom: 120px;
+    @media (max-width: 990px) {
+      margin-bottom: 90px;
+    }
+    @media (max-width: 575px) {
+      margin-bottom: 60px;
+    }
   }
 `
 
@@ -31,15 +47,6 @@ export const RelatedPostWrapper = styled.div`
   }
   @media (max-width: 575px) {
     padding: 0 25px 0 25px;
-  }
-  .pagination {
-    margin-top: 80px;
-    @media (max-width: 1024px) {
-      margin-top: 60px;
-    }
-    @media (max-width: 575px) {
-      margin-top: 30px;
-    }
   }
 `
 
@@ -301,29 +308,5 @@ export const PostTags = styled.div`
       font-size: 13px;
       margin-right: 25px;
     }
-  }
-`
-
-export const PostRow = styled.div`
-  margin: 0 -15px;
-  @media (max-width: 990px) {
-    margin: 0 -10px;
-  }
-`
-
-export const PostCol = styled.div`
-  margin-bottom: 50px;
-  width: 33.33333%;
-  float: left;
-  padding: 0 15px;
-  @media (max-width: 990px) {
-    padding: 0 10px;
-  }
-  @media (max-width: 767px) {
-    width: 50%;
-  }
-  @media (max-width: 575px) {
-    width: 100%;
-    margin-bottom: 40px;
   }
 `

@@ -3,32 +3,31 @@ import { themeGet } from "styled-system"
 
 const BlogPostsWrapper = styled.div`
   margin: 0 auto;
-  padding: 90px 0 0 0;
+  padding-top: 120px;
   position: relative;
-  max-width: 1170px;
-  width: 100%;
-
-  @media (max-width: 1440px) {
-    max-width: 990px;
-  }
-  @media (max-width: 1400px) {
-    padding: 90px 0 0 0;
-  }
-  @media (max-width: 1199px) {
-    padding: 90px 45px 0 45px;
-    max-width: 890px;
-  }
-  @media (max-width: 990px) {
-    padding: 50px 25px 0 25px;
-  }
-  .pagination {
-    margin-top: 80px;
-    @media (max-width: 1024px) {
-      margin-top: 60px;
+  .post_card {
+    margin-bottom: 120px;
+    @media (max-width: 990px) {
+      margin-bottom: 90px;
     }
     @media (max-width: 575px) {
-      margin-top: 30px;
+      margin-bottom: 60px;
     }
+  }
+  @media (min-width: 990px) {
+    width: 900px;
+  }
+  @media (min-width: 1200px) {
+    width: 1050px;
+  }
+  @media (min-width: 1400px) {
+    width: 1170px;
+  }
+  @media (max-width: 990px) {
+    padding: 80px 45px 0 45px;
+  }
+  @media (max-width: 575px) {
+    padding: 60px 25px 0 25px;
   }
 `
 
@@ -48,38 +47,6 @@ export const SecTitle = styled.div`
     background: #292929;
     display: block;
     margin-top: 8px;
-  }
-`
-
-export const PostRow = styled.div`
-  margin: 0 -15px;
-  @media (max-width: 1024px) {
-    margin: 0 -10px;
-  }
-`
-
-export const PostCol = styled.div`
-  margin-bottom: 30px;
-  width: 50%;
-  float: left;
-  padding: 0 15px;
-  @media (max-width: 1024px) {
-    padding: 0 10px;
-    margin-bottom: 20px;
-  }
-  @media (max-width: 575px) {
-    width: 100%;
-  }
-`
-
-export const LoadMoreButton = styled.div`
-  text-align: center;
-  margin-top: 70px;
-  @media (max-width: 990px) {
-    margin-top: 50px;
-  }
-  @media (max-width: 575px) {
-    margin-top: 30px;
   }
 `
 

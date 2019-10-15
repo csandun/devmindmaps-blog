@@ -1,11 +1,10 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import Masonry from "react-masonry-component"
-import MasonryCard from "components/MasonryCard/masonryCard"
-import Pagination from "components/Pagination/pagination"
+import PostCardMinimal from "components/PostCardMinimal/PostCardMinimal"
+import Pagination from "components/Pagination/Pagination"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { BlogPostsWrapper, PostRow, PostCol } from "./templates.style"
+import { BlogPostsWrapper } from "./templates.style"
 
 const BlogList = (props: any) => {
   const { data } = props
@@ -24,28 +23,23 @@ const BlogList = (props: any) => {
       <SEO title={`Page ${currentPage}`} />
 
       <BlogPostsWrapper>
-        <PostRow>
-          <Masonry className="showcase">
-            {Posts.map(({ node }: any) => {
-              return (
-                <PostCol key={node.fields.slug}>
-                  <MasonryCard
-                    title={node.frontmatter.title || node.fields.slug}
-                    image={
-                      node.frontmatter.cover == null
-                        ? null
-                        : node.frontmatter.cover.childImageSharp.fluid
-                    }
-                    url={node.fields.slug}
-                    date={node.frontmatter.date}
-                    tags={node.frontmatter.tags}
-                    readTime={node.fields.readingTime.text}
-                  />
-                </PostCol>
-              )
-            })}
-          </Masonry>
-        </PostRow>
+        {Posts.map(({ node }: any) => {
+          return (
+            <PostCardMinimal
+              key={node.fields.slug}
+              title={node.frontmatter.title || node.fields.slug}
+              image={
+                node.frontmatter.cover == null
+                  ? null
+                  : node.frontmatter.cover.childImageSharp.fluid
+              }
+              url={node.fields.slug}
+              description={node.frontmatter.description || node.excerpt}
+              date={node.frontmatter.date}
+              tags={node.frontmatter.tags}
+            />
+          )
+        })}
 
         <Pagination
           prevLink={PrevLink}
@@ -79,7 +73,7 @@ export const pageQuery = graphql`
         node {
           excerpt(pruneLength: 300)
           fields {
-            slug            
+            slug
           }
           frontmatter {
             date(formatString: "DD [<span>] MMMM [</span>]")
@@ -88,7 +82,7 @@ export const pageQuery = graphql`
             tags
             cover {
               childImageSharp {
-                fluid(maxWidth: 1170, quality: 90) {
+                fluid(maxWidth: 170, maxHeight: 170, quality: 90) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
