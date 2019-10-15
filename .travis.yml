@@ -21,4 +21,13 @@ install:
   - yarn 
 
 script:
-  - yarn minimal-build
+  - yarn minimal-build --base-href https://chathurangasandun.github.io/devmindmaps/
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  keep-history: true
+  github_token: $GITHUB_TOKEN
+  local_dir: packages/personal-blog-minimal/public
+  on:
+    branch: master
