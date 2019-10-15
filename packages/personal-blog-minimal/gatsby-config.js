@@ -4,11 +4,12 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `The Programmer Mind`,
-    author: `Chathuranga Sandun`,
-    about: ` is a Software Engineer, blogger and freelancer with industry experience with C#, Asp.Net Core,  Angular 2+ and more latest techologies. Contact me through Facebook or Linkedin.`,
-    description: `The Programmer's Mind`,
-    siteUrl: `http://theprogrammermind.com`,
+    title: `StoryHub`,
+    author: `David`,
+    about: `Breakfast procuring no end happiness allowance assurance frank. Met simplicity nor difficulty unreserved who. Entreaties mr conviction dissimilar me
+    astonished estimating cultivated.`,
+    description: `A Gatsby Blog`,
+    siteUrl: `https://storyhub-minimal-tarex.redq.now.sh`,
   },
   plugins: [
     {
@@ -35,19 +36,6 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: 'gatsby-remark-embed-gist',
-            options: {
-              // Optional:
-
-              // the github handler whose gists are to be accessed
-              username: 'weirdpattern',
-
-              // a flag indicating whether the github default gist css should be included or not
-              // default: true
-              includeDefaultCss: true,
-            },
-          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -125,6 +113,12 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-lodash`,
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: '',
+      },
     },
     {
       resolve: `gatsby-source-instagram`,

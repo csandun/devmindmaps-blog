@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Link } from 'gatsby';
-import _ from 'lodash';
-import Img from 'gatsby-image';
+import * as React from "react"
+import { Link } from "gatsby"
+import _ from "lodash"
+import Img from "gatsby-image"
 import {
   PostListWrapper,
   PostPreview,
@@ -10,16 +10,16 @@ import {
   PostMeta,
   PostDate,
   PostTags,
-} from './PostList.style';
+} from "./postList.style"
 
 interface PostListProps {
-  image?: any;
-  title: string;
-  url: string;
-  date?: string;
-  tags?: [];
-  className?: string;
-  imageType?: 'fixed' | 'fluid';
+  image?: any
+  title: string
+  url: string
+  date?: string
+  tags?: []
+  className?: string
+  imageType?: "fixed" | "fluid"
 }
 
 const PostList: React.FunctionComponent<PostListProps> = ({
@@ -33,20 +33,19 @@ const PostList: React.FunctionComponent<PostListProps> = ({
   ...props
 }) => {
   // Add all classs to an array
-  const addAllClasses = ['post_list'];
+  const addAllClasses = ["post_list"]
 
   // className prop checking
   if (className) {
-    addAllClasses.push(className);
+    addAllClasses.push(className)
   }
 
-  
   return (
-    <PostListWrapper className={addAllClasses.join(' ')} {...props}>
+    <PostListWrapper className={addAllClasses.join(" ")} {...props}>
       <Link to={url}>
         {image == null ? null : (
           <PostPreview className="post_preview">
-            {imageType === 'fluid' ? (
+            {imageType === "fluid" ? (
               <Img fluid={image} alt="post preview" />
             ) : (
               <Img fixed={image} alt="post preview" />
@@ -76,11 +75,11 @@ const PostList: React.FunctionComponent<PostListProps> = ({
         </PostDetails>
       </Link>
     </PostListWrapper>
-  );
-};
+  )
+}
 
 PostList.defaultProps = {
-  imageType: 'fluid',
-};
+  imageType: "fluid",
+}
 
-export default PostList;
+export default PostList

@@ -3,7 +3,7 @@ import SearchReducer, { initialState } from "./SearchReducer"
 import { useStaticQuery, graphql } from "gatsby"
 import { Scrollbars } from "react-custom-scrollbars"
 import { rebuildIndex } from "./SearchIndexBuilderFunction"
-import PostList from "components/PostList/PostList"
+import PostList from "../../components/PostList/postList"
 import {
   SearchWrapper,
   SearchForm,

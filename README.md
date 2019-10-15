@@ -1,20 +1,19 @@
-### Local deployment
+## To run "Agency Blog"
 
-1. to install node modules
+`yarn agency-dev`
 
-```
-yarn install
-```
+## To run "Personal Blog"
 
-2. run the project in local
+`yarn personal-dev`
 
-```
-yarn minimal-dev
-```
+## To run "Personal Blog minimal"
 
-3. site launches in port 8000
+`yarn minimal-dev`
 
-### Notes
+## To run "Image Blog"
 
-1. Go to 'gh-pages'. Then add the CNAME file and add 'theprogrammermind.com'.
-2. In the repository settings add the domain in custom domain section.
+`yarn image-dev`
+
+## To run "Minimal Photography Blog"
+
+`yarn photography-dev`

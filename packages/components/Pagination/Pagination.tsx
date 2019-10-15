@@ -6,7 +6,7 @@ import {
   PrevPage,
   NextPage,
   PageNumber,
-} from './Pagination.style';
+} from './pagination.style';
 
 type PaginationProps = {
   prevLink?: string | undefined | null | boolean;

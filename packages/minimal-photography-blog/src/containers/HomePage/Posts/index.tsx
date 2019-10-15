@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Masonry from "react-masonry-component"
 import Button from "components/Button/Button"
-import ImageCard from "../../../components/ImageCard/imageCard"
+import ImageCard from "components/ImageCard/imageCard"
 import BlogPostsWrapper, {
   PostRow,
   PostCol,

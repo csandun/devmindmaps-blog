@@ -5,8 +5,8 @@ import SocialProfile from "components/SocialProfile/SocialProfile"
 import {
   IoLogoFacebook,
   IoLogoTwitter,
+  IoLogoInstagram,
   IoLogoLinkedin,
-  IoLogoGithub,
 } from "react-icons/io"
 import {
   AboutWrapper,
@@ -19,22 +19,22 @@ import {
 const SocialLinks = [
   {
     icon: <IoLogoFacebook />,
-    url: "https://www.facebook.com/chathurangasandunkumara",
+    url: "https://www.facebook.com/redqinc/",
     tooltip: "Facebook",
   },
   {
-    icon: <IoLogoGithub />,
-    url: "https://github.com/ChathurangaSandun",
-    tooltip: "Github",
+    icon: <IoLogoInstagram />,
+    url: "https://www.instagram.com/redqinc/",
+    tooltip: "Instagram",
   },
   {
     icon: <IoLogoTwitter />,
-    url: "https://twitter.com/csandunkumara",
+    url: "https://twitter.com/redqinc",
     tooltip: "Twitter",
   },
   {
     icon: <IoLogoLinkedin />,
-    url: "https://www.linkedin.com/in/csandun/",
+    url: "https://www.linkedin.com/company/redqinc/",
     tooltip: "Linked In",
   },
 ]
@@ -75,11 +75,8 @@ const About: React.FunctionComponent<AboutProps> = props => {
         <Image fluid={Data.avatar.childImageSharp.fluid} alt="author" />
       </AboutImage>
 
-      
       <AboutDetails>
         <h2>Hey there, what’s up?</h2>
-        
-
         <p>
           RedQ Team is a creative agency specializing in building scalable,
           high-performance web & mobile application. Our main concern is

@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Swiper from "react-id-swiper"
 import "react-id-swiper/lib/styles/css/swiper.css"
-import PostSlideCard from "../../../components/PostSlideCard/PostSlideCard"
+import PostSlideCard from "components/PostSlideCard/PostSlideCard"
 import PostSliderWrapper, { PrevButton, NextButton } from "./style"
 
 const SimpleSwiper = () => {

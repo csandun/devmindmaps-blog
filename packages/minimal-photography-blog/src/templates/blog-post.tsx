@@ -5,8 +5,8 @@ import { DiscussionEmbed } from "disqus-react"
 import urljoin from "url-join"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostCard from "../components/PostCard/postCard"
-import PostDetails from "../components/PostDetails/postDetails"
+import PostCard from "components/PostCard/postCard"
+import PostDetails from "components/PostDetails/postDetails"
 import {
   FacebookShareButton,
   TwitterShareButton,
