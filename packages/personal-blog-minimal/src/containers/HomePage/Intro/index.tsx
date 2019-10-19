@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import SocialProfile from "components/SocialProfile/SocialProfile"
+import SocialProfile from "components/SocialProfile/socialProfile"
 import {
   IntroWrapper,
   IntroImage,
@@ -14,7 +14,6 @@ import {
   IoLogoTwitter,
   IoLogoInstagram,
   IoLogoGithub,
-  IoLogoLinkedin,
 } from "react-icons/io"
 
 type IntroProps = {}
@@ -22,23 +21,23 @@ type IntroProps = {}
 const SocialLinks = [
   {
     icon: <IoLogoFacebook />,
-    url: "https://www.facebook.com/chathurangasandunkumara",
+    url: "#",
     tooltip: "Facebook",
   },
   {
-    icon: <IoLogoGithub />,
-    url: "https://github.com/ChathurangaSandun",
-    tooltip: "Github",
+    icon: <IoLogoInstagram />,
+    url: "#",
+    tooltip: "Instagram",
   },
   {
     icon: <IoLogoTwitter />,
-    url: "https://twitter.com/csandunkumara",
+    url: "#",
     tooltip: "Twitter",
   },
   {
-    icon: <IoLogoLinkedin />,
-    url: "https://www.linkedin.com/in/csandun/",
-    tooltip: "Linked In",
+    icon: <IoLogoGithub />,
+    url: "#",
+    tooltip: "Github",
   },
 ]
 
@@ -73,7 +72,7 @@ const Intro: React.FunctionComponent<IntroProps> = props => {
         <IntroTitle>
           Hey! I’m <b>{author}</b>
         </IntroTitle>
-        <Desciption><b>{author}</b> {about}</Desciption>
+        <Desciption>{about}</Desciption>
         <SocialProfile items={SocialLinks} />
       </IntroInfo>
     </IntroWrapper>
