@@ -77,7 +77,7 @@ const About: React.FunctionComponent<AboutProps> = props => {
 
       
       <AboutDetails>
-        <h2>Hey there, what’s up?</h2>
+        <h2>Hi there, what’s up?</h2>
         
 
         <p>
