@@ -88,7 +88,8 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
           {Posts.slice(0, state.visibile).map(({ node }: any) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <PostCol key={node.fields.slug}>
+              <PostCol key={node.fields.slug}>   
+              <h3><em>#{node.frontmatter.title}</em></h3>             
                 <ImageCard
                   title={title}
                   image={
@@ -99,6 +100,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
                   url={node.fields.slug}
                   description={node.frontmatter.description || node.excerpt}
                 ></ImageCard>
+                
               </PostCol>
             )
           })}

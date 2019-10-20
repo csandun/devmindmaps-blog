@@ -53,11 +53,7 @@ const BlogPostTemplate = (props: any) => {
         <PostDetails
           title={post.frontmatter.title}
           date={post.frontmatter.date}
-          preview={
-            post.frontmatter.cover == null
-              ? null
-              : post.frontmatter.cover.childImageSharp.fluid
-          }
+          preview={null}
           description={post.html}
           imagePosition="top"
         />
