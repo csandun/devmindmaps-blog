@@ -59,11 +59,11 @@ const BlogPostTemplate = (props: any) => {
               : post.frontmatter.cover.childImageSharp.fluid
           }
           description={post.html}
-          imagePosition="left"
+          imagePosition="top"
         />
 
         <BlogPostFooter
-          className={post.frontmatter.cover == null ? "center" : ""}
+          className="center"
         >
           {post.frontmatter.tags == null ? null : (
             <PostTags className="post_tags">
@@ -97,7 +97,7 @@ const BlogPostTemplate = (props: any) => {
           </PostShare>
         </BlogPostFooter>
         <BlogPostComment
-          className={post.frontmatter.cover == null ? "center" : ""}
+          className="center"
         >
           <DiscussionEmbed {...disqusConfig} />
         </BlogPostComment>

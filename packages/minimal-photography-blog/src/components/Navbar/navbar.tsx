@@ -14,7 +14,7 @@ import HeaderWrapper, {
   SearchCloseButton,
   NavSearchFromWrapper,
 } from "./navbar.style"
-import LogoImage from "../../images/logo.png"
+import LogoImage from "../../images/logofinal.gif"
 
 type NavbarProps = {
   className?: string
@@ -32,11 +32,7 @@ const MenuItems = [
   {
     label: "Contact",
     url: "/contact",
-  },
-  {
-    label: "404 Page",
-    url: "/404",
-  },
+  }
 ]
 
 const Navbar: React.FunctionComponent<NavbarProps> = ({
