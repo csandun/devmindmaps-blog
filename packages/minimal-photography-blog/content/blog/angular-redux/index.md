@@ -1,8 +1,8 @@
 ---
-title: Can I Use Hooks Today?
-date: '2019-02-20'
-description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
-tags: ['animals', 'zoos', 'unity', 'featured']
+title: Angular NGRX
+date: '2019-10-20'
+description: <i><b>Ngrx</b></i> is a group of Angular libraries for reactive extensions. Ngrx/Store implements the Redux pattern using the well-known RxJS</br><h5><i>Wikipidia</i></h5>.
+tags: ['angular', 'ngrx', 'featured']
 cover: './preview.jpg'
 ---
 
