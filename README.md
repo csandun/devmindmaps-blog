@@ -1,19 +1,26 @@
-## To run "Agency Blog"
+# Dev Mind Maps -Personal Blog with MIND MAPs
 
-`yarn agency-dev`
+[![](packages/minimal-photography-blog/src/images/logofinal.gif)](https://devmindmaps.netlify.com/)
 
-## To run "Personal Blog"
+**This is a personal blog with share knowladge using Mind maps to help understand technical scope of a topic easily**
 
-`yarn personal-dev`
+## Technologies 
+1. React
+2. GraphQL with GraphiQL
+3. netlify.com auto debugging
 
-## To run "Personal Blog minimal"
+### Local deployment
 
-`yarn minimal-dev`
+1. to install node modules
 
-## To run "Image Blog"
+```
+yarn install
+```
 
-`yarn image-dev`
+2. run the project in local
 
-## To run "Minimal Photography Blog"
+```
+yarn minimal-dev
+```
 
-`yarn photography-dev`
+3. site launches in port 8000
